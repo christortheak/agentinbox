@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!-- Rendered and installed by `agentinbox install`; kept here as reference.
+     The settings page, started only by `launchctl kickstart` (the agent's
+     open-settings request). It runs the venv's plain Python entry point,
+     NEVER agentinbox-runner, so the process with a network listener holds no
+     TCC grants. No RunAtLoad, no triggers. Logs live outside the agent's
+     folder, and --no-print-link keeps the page's secret link out of them. -->
+<plist version="1.0">
+<dict>
+  <key>Label</key><string>com.agentinbox.configui</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>__HOME__/.agentinbox/venv/bin/agentinbox</string>
+    <string>config-ui</string>
+    <string>--no-print-link</string>
+  </array>
+  <key>RunAtLoad</key><false/>
+  <key>StandardOutPath</key><string>__HOME__/.agentinbox/logs/configui.out.log</string>
+  <key>StandardErrorPath</key><string>__HOME__/.agentinbox/logs/configui.err.log</string>
+  <key>ProcessType</key><string>Interactive</string>
+</dict>
+</plist>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!-- Rendered and installed by `agentinbox install`; kept here as reference. -->
+<plist version="1.0">
+<dict>
+  <key>Label</key><string>com.agentinbox.export</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>__AGENTINBOX_BIN__</string>
+    <string>run</string>
+    <string>--once</string>
+  </array>
+  <key>StartInterval</key><integer>__INTERVAL_SECONDS__</integer>
+  <key>RunAtLoad</key><true/>
+  <key>StandardOutPath</key><string>__OUTPUT_DIR__/logs/launchd.out.log</string>
+  <key>StandardErrorPath</key><string>__OUTPUT_DIR__/logs/launchd.err.log</string>
+  <key>ProcessType</key><string>Background</string>
+</dict>
+</plist>

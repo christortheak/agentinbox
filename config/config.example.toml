@@ -1,0 +1,60 @@
+# AgentInbox configuration - copy to ~/.config/agentinbox/config.toml
+# This file is human-only. The agent can adjust a few preferences (mail_days,
+# calendar_future_days, reminders_completed_days, calendar_link_format) through
+# the request mailbox; those are stored in ~/.agentinbox/preferences.json and
+# override the matching values here. Everything else - mailboxes, accounts,
+# which calendars are exported, write permissions - only you can change.
+output_dir = "~/AgentInbox/Inbox"   # NOT inside iCloud Drive; NOT the source repo
+timezone = "America/New_York"
+
+[mail]
+days = 90                    # emails tied to future meetings are kept longer automatically
+mailboxes = ["INBOX", "Sent"]
+body_chars = 20000
+max_bytes = 2000000          # bigger messages export headers only
+exclude_accounts = []        # email addresses, case-insensitive
+
+# Manual overrides (win over Accounts.plist and header inference). Map and
+# exclude Mail's local Outbox directory if the `mailboxes` diagnostic shows one:
+# [mail.accounts]
+# "UUID-OF-LOCAL-OUTBOX-DIR" = "Local Outbox <local-outbox@mail.local>"
+
+[attachments]
+max_bytes = 52428800         # 50 MB cap for on-demand fetch
+retention_days = 7
+
+[calendar]
+past_days = 1
+future_days = 365            # events.json horizon, for duplicate checking
+agenda_days = 21             # agenda.md stays near-term
+# Exact titles; empty = all minus exclude. When a title exists in more than
+# one account, pick one: { title = "Work", source = "iCloud" }.
+# Easiest: run `agentinbox config-ui` and choose from your real calendar list.
+include = ["<Your Work Calendar>"]
+exclude = []                 # used only when include is empty
+# Other calendars where accepted invites land, title/time only. When two
+# accounts share a title, name the account: { title = "Calendar", source = "Exchange" }
+lookup = []
+
+[calendar.roles]             # optional; single included calendar defaults to "mine"
+"<Your Work Calendar>" = "mine"
+
+[reminders]
+enabled = true               # export reminders on every run
+include = []                 # reminder lists; empty = all
+completed_days = 7           # also show recently completed
+allow_create = true          # agent may create reminders (via requests/)
+allow_complete = true        # agent may check reminders off (via requests/)
+
+[proposals]
+enabled = true               # agent may generate click-to-add event files/links
+formats = ["ics"]            # any of "ics", "google", "outlook"
+
+[preferences]
+allow_agent_changes = true   # false = the agent cannot change any preference
+
+[settings_page]
+agent_may_open = true        # the agent may pop the settings page open for you
+
+[schedule]
+interval_seconds = 1800      # 30 minutes

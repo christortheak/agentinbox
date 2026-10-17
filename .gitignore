@@ -1,0 +1,19 @@
+# Never commit exported mail or private state
+Inbox/
+/AgentInbox/
+.agentinbox/
+config.toml
+!config/config.example.toml
+docs/mail-safety-review-*.md
+Claude outputs/
+
+# Build output
+calexport/.build/
+mailexport/build/
+*.egg-info/
+__pycache__/
+.pytest_cache/
+*.pyc
+
+# macOS
+.DS_Store

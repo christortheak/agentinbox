@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>CFBundleIdentifier</key>
+    <string>com.agentinbox.runner</string>
+    <key>CFBundleName</key>
+    <string>agentinbox-runner</string>
+    <key>CFBundleShortVersionString</key>
+    <string>0.1.0</string>
+    <key>NSCalendarsFullAccessUsageDescription</key>
+    <string>AgentInbox exports a read-only snapshot of your calendars to a local folder. It never modifies events.</string>
+    <key>NSCalendarsUsageDescription</key>
+    <string>AgentInbox exports a read-only snapshot of your calendars to a local folder. It never modifies events.</string>
+    <key>NSRemindersFullAccessUsageDescription</key>
+    <string>AgentInbox exports your reminders and can create or complete reminders you ask for. It never edits or deletes them.</string>
+    <key>NSRemindersUsageDescription</key>
+    <string>AgentInbox exports your reminders and can create or complete reminders you ask for. It never edits or deletes them.</string>
+</dict>
+</plist>

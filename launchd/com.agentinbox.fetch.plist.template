@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!-- Rendered and installed by `agentinbox install`; kept here as reference.
+     WatchPaths fires when the agent writes a request file; launchd-launched
+     processes are their own TCC-responsible process, so FDA applies. -->
+<plist version="1.0">
+<dict>
+  <key>Label</key><string>com.agentinbox.fetch</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>__AGENTINBOX_BIN__</string>
+    <string>fetch-worker</string>
+  </array>
+  <key>WatchPaths</key>
+  <array>
+    <string>__OUTPUT_DIR__/requests</string>
+  </array>
+  <key>RunAtLoad</key><false/>
+  <key>ThrottleInterval</key><integer>2</integer>
+  <key>StandardOutPath</key><string>__OUTPUT_DIR__/logs/fetch.out.log</string>
+  <key>StandardErrorPath</key><string>__OUTPUT_DIR__/logs/fetch.err.log</string>
+  <key>ProcessType</key><string>Background</string>
+</dict>
+</plist>
